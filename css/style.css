@@ -1,0 +1,214 @@
+.logo{
+    margin-right: 60%;
+}
+
+.item-header img{
+    height: 80vh;
+}
+
+.card img{
+    height: 30vh;
+}
+
+.navbar-nav li:nth-child(1):hover, .navbar-nav li:nth-child(2):hover, .navbar-nav li:nth-child(3):hover, .navbar-nav li:nth-child(4):hover, .navbar-nav li:nth-child(6):hover, .navbar-nav li:nth-child(7):hover{
+    background: blue;
+    border-radius: 10px;
+}
+
+.navbar-nav #signup{
+    margin-left: 30%;
+}
+
+#signup_ul{
+    width: 100%;
+}
+
+.main-item img{
+    height: 50vh;
+}
+
+.advert-div-one img{
+    margin-left: 35%;
+}
+
+.advert-div-one p i{
+    font-size: 25px;
+}
+
+.footer_div_one ul li, .footer_div_two p{
+    list-style: none;
+    color: gray;
+    padding: 10px;
+    font-weight: bold;
+    font-size:18px;
+}
+
+ 
+
+ .about-wrap{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about_segun{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 30px;
+    margin-bottom: -70px;
+}
+
+.about_segun div{
+    margin-left: -30%;
+}
+
+.about_segun .about_segun_div{
+    margin-top: 25px;
+    margin-left: -35%;
+}
+
+.about_segun div img{
+    width: 18%;
+    height: 50%;
+    border: 2px solid grey;
+    border-radius: 50%;
+} 
+
+/* about style end */
+
+/* contact style start */
+
+.address_media li{
+    list-style: none;
+}
+
+.social_media li{
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+}
+ 
+   /* .contact_us .address_media{
+       color: gray;
+       font-weight: bold;
+       font-size: 15px;
+       list-style: none;
+   } */
+/* 
+   .contact_us .social_media li{
+       display: inline-block;
+       font-size: 30px; */
+   }
+
+   .contact_media .contact_wrap_div .contact_us .social_media .fa-facebook{
+       color: #3B5998;
+       font-size: 30px;
+   }
+
+   .contact_media .contact_wrap_div .contact_us .social_media.fa-instagram{
+       color: #e95950;
+       font-size: 30px;
+    
+   }
+
+   .contact_media .contact_wrap_div .contact_us .social_media .fa-twitter{
+    color: #1da1f2;
+    font-size: 30px;
+}
+
+.contact_media .contact_wrap_div .contact_us .social_media .fa-google{
+    color: #4285f4;
+    font-size: 30px;
+}
+
+.contact_media .contact_wrap_div .contact_us .social_media .fa-whatsapp{
+    color: #25d366;
+    font-size: 30px;
+}
+
+.contact_us .social_media li:hover{
+    padding-left: 15px;
+}
+
+ .professional_driv h5{
+    font-weight: bold;
+}
+.professional_driv .subscribe h4{
+    font: size 20px;
+    margin-left: 40%;
+}
+ /* contact style end */
+
+ /* service style start */
+ .service_header{
+     background-image: url("../img/car5.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 60vh;
+ }
+
+ .service_header h3{
+     position: absolute;
+     top: 30%;
+     left: 30%;
+     font-weight: bold;
+     letter-spacing: 5px;
+     font-size: 42px;
+ }
+
+ .service_header button{
+     position: absolute;
+     top: 47%;
+     left: 48%;
+     border: ipx solid red;
+     border-radius: 10px;
+ }
+
+ .service_header button:hover{
+     background: red;
+ }
+ 
+/* service style end */
+
+/* details starts */
+
+.img-wrap{
+    width: 80%;
+}
+
+.img-wrap li{
+    list-style: none;
+    display: inline;
+}
+.img-wrap li:hover{
+    border: 1px solid red;
+
+}
+.details_color{
+    width: 50%;
+}
+.details_color li{
+    list-style: none;
+    display: inline;
+    width: ;
+}
+
+.details_color li:hover{
+    border: 1px solid red;
+}
+
+.car_details li{
+    list-style: none;
+}
+
+.car_details ul li .minus_quant{
+    border-radius: 50%;
+    background: rgb(219, 217, 217);
+    font-weight: bold;
+}
+
+.car_details ul li .plus_quant{
+    border-radius:50% ;
+    background: rgb(219, 217, 217);
+    font-weight: bold;
+}

@@ -1,0 +1,639 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link rel="stylesheet" href="css/main.css"> -->
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<style>
+    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+}
+
+#wrapper {
+    padding-left: 0;    
+}
+
+#page-wrapper {
+    width: 100%;        
+    padding: 0;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 22px 10px;
+    }
+}
+
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #1a242f;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    /*border: 1px solid rgba(0,0,0,.15);*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 60px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        overflow-y: auto;
+        background-color: #222;
+        /*background-color: #5A6B7D;*/
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        border-bottom: 1px rgba(0,0,0,.3) solid;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #1a242f !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+    border-bottom: 1px rgba(0,0,0,.3) solid;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    /*color: #999;*/
+    color: #fff;    
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+.navbar .nav > li > a > .label {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  min-width: 15px;
+  min-height: 15px;
+  line-height: 1.0em;
+  text-align: center;
+  padding: 2px;
+}
+
+.navbar .nav > li > a:hover > .label {
+  top: 10px;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+
+#profile_email{
+    display: none;
+}
+
+.profile-image img{
+    width: 20%;
+    border-radius: 50%;
+}
+
+.li img{
+    width: 5%;
+    border-radius: 50%;
+}
+.table_div{
+    list-style: none;
+}
+
+
+
+</style>
+
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"> 
+
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="http://placehold.it/200x50&text=HOME" alt="HOME">
+            </a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+        
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="fa fa-angle-down"></b></a>
+                <ul class="dropdown-menu">
+
+                    <li><a href=""  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                    <li><a href="" data-toggle="modal" data-target="#passwordModal"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+      <ul class="dropdown-menu">
+
+                    <li><a href=""  data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-user"></i> Edit Profile</a>
+                    </li>
+                    <li><a href="" data-toggle="modal" data-target="#passwordModal"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Products<i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-1" class="collapse">
+                        <li><a href="#"><i class="fa fa-user"></i> Post Cars</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> View Products</a></li>
+                        <!-- <li><a href="#"><i class="fa fa-phone-square"></i> Edit Phone Number</a></li>
+                        <li><a href="#"><i class="fa fa-lock"></i> Change Password</a></li> -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-eye"></i> View User <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                    <ul id="submenu-1" class="collapse">
+                        <li><a href="#"><i class="fa fa-user"></i> Post Cars</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> View Products</a></li>
+                        <!-- <li><a href="#"><i class="fa fa-phone-square"></i> Edit Phone Number</a></li>
+                        <li><a href="#"><i class="fa fa-lock"></i> Change Password</a></li> -->
+                    </ul>
+                </li>
+               
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row" id="main" >
+                <div class="col-sm-12 col-md-12 well" id="content">
+                    <h1>Welcome Segun!</h1>
+                </div> 
+                <div class="table_div">
+                    <table class="table">
+                        <thead class="table-header">
+                            <tr>
+                                <td>SN</td>
+                                <td>Brand</td>
+                                <td>Images</td>
+                                <td>Price</td>
+                                <td>Current Price</td>
+                                <td>View</td>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr>
+                                <td>1</td>
+                                <td>Toyota</td>
+                                <td width="20%"><img src="img/car2.jpg" alt="" width="30%"></td>
+                                <td>5000000</td>
+                                <td>4900000</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat">
+                                    <a href="" data-toggle="modal" data-target="#viewmodal"></a><i class="fa fa-eye"></i> View
+                                   </button><button type="button" class="btn btn-success btn-sm btn-flat" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-pencil-square-o"></i> 
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Edit <b class="fa fa-angle-down"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <form action="">
+                                                    <input type="text" placeholder="Brand"><br>
+                                                    <input type="text" placeholder="Price"><br>
+                                                    <input type="text" placeholder="Current Price"><br>
+                                                    <input type="file" placeholder="Image">
+                                                </form>
+                                            </ul>
+                                        </li>
+                                    </button><button type="button" class="btn btn-danger btn-md btn-flat"><i class=" fa fa-dustbin"></i>Delete <i></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nissan</td>
+                                <td><img src="img/car3.jpg" alt="" width="30%"></td>
+                                <td>5000000</td>
+                                <td>4700000</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> View <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                        
+                                            <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 2</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-type"></i> Brand - Nissan</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#imageModal"><i class="fa fa-fw fa-photo"></i> Image</a> <a href=""> <img src="img/car3.jpg" alt=""></a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-money"></i> Price - 5000000</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-money"></i> Current Price - 4700000</a></li>
+                                           
+                                        </ul>
+                                    </li> 
+                            </button><button type="button" class="btn btn-success btn-sm btn-flat" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-pencil-square-o"></i>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Edit <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <form action="">
+                                            <input type="text" placeholder="Brand"><br>
+                                            <input type="text" placeholder="Price"><br>
+                                            <input type="text" placeholder="Current Price"><br>
+                                            <input type="file" placeholder="Image">
+                                        </form>
+                                    </ul>
+                                </li>
+                        </button><button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-trash"></i> Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Honda</td>
+                                <td><img src="img/car5.jpg" alt="" width="30%"></td>
+                                <td>2000000</td>
+                                <td>1800000</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                        
+                                            <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 3</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-type"></i> Brand - Honda</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#imageModal"><i class="fa fa-fw fa-photo"></i> Image</a> <a href=""> <img src="img/car5.jpg" alt=""></a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-money"></i> Price - 2000000</a></li>
+                                            <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-money"></i> Current Price - 1800000</a></li>
+                                           
+                                        </ul>
+                                    </li>
+                                
+                                </button><button type="button" class="btn btn-success btn-sm btn-flat" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-pencil-square-o"></i> 
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Edit <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <form action="">
+                                                <input type="text" placeholder="Brand"><br>
+                                                <input type="text" placeholder="Price"><br>
+                                                <input type="text" placeholder="Current Price"><br>
+                                                <input type="file" placeholder="Image">
+                                            </form>
+                                        </ul>
+                                    </li>
+
+                                </button><button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Benz</td>
+                                <td><img src="img/car2.jpg" alt="" width="30%"></td>
+                                <td>7000000</td>
+                                <td>6900000</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"> <i class="fa fa-eye"></i>
+                                     <li class="dropdown"
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 4</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-type"></i> Brand - Benz</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#imageModal"><i class="fa fa-fw fa-photo"></i> Image</a> <a href=""> <img src="img/car2.jpg" alt=""></a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-money"></i> Price - 7000000</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-money"></i> Current Price - 6900000</a></li>
+                                       
+                                    </ul>
+                                </li>
+                            </button><button type="button" class="btn btn-success btn-sm btn-flat" style="margin-left: 5px; margin-right: 5px;"><i class="fa fa-pencil-square-o"></i> -->
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Edit <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <form action="">
+                                                <input type="text" placeholder="Brand"><br>
+                                                <input type="text" placeholder="Price"><br>
+                                                <input type="text" placeholder="Current Price"><br>
+                                                <input type="file" placeholder="Image">
+                                            </form>
+                                        </ul>
+                                    </li>
+                                </button><button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                <div class="table_div">
+                    <table class="table">
+                        <thead class="table-header">
+                            <tr>
+                                <td>SN</td>
+                                <td>Full Name</td>
+                                <td>Phone Number</td>
+                                <td>Email</td>
+                                <td>View</td>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr>
+                                <td>1</td>
+                                <td>Damilola Mercy</td>
+                                <td width="20%">08137945982</td>
+                                <td>damilolamercy2@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i>
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 1</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Damilola Mercy</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08137945982</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - damilolamercy2@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li>
+                            </button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Omoreghe Blessing</td>
+                                <td width="20%">08023923847</td>
+                                <td>omohblessing18@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i>
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 2</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Omoreghe Blessing</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08023923847</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - omohblessing18@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Alatise Mariam</td>
+                                <td width="20%">08088245649</td>
+                                <td>alatisemariam01@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 3</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Alatise Mariam</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08088245649</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - alatisemariam01@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Adewusi Aisha</td>
+                                <td width="20%">08120994715</td>
+                                <td>adewusiaisha06@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 4</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Adewusi Aisha</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08120994715</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - adewusiaisha06@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Aigbe Chuks</td>
+                                <td width="20%">08056438760</td>
+                                <td>fineboychukz@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i>
+                                     <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 5</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Aigbe Chuks</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08056438760</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - fineboychukz@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Oyejide Samuel</td>
+                                <td width="20%">09054327609</td>
+                                <td>samgodson95@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 6</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Oyejide Samuel</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 09054327609</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - samgodson95@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Giwa Anjolaoluwa</td>
+                                <td width="20%">08128765497</td>
+                                <td>giwaanjy2002@gmail.com</td>
+                                <td><button type="button" class="btn btn-warning btn-sm btn-flat"><i class="fa fa-eye"></i> 
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                    
+                                        <li><a href=""  data-toggle="modal" data-target="#snModal"><i class="fa fa-fw fa-number"></i>S/N - 7</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#brandModal"><i class="fa fa-fw fa-user"></i> Name - Giwa Anjolaoluwa</a></li> 
+                                        <li><a href="" data-toggle="modal" data-target="#cpriceModal"><i class="fa fa-fw fa-mobile"></i> Phone Number - 08128765497</a></li>
+                                       <li><a href="" data-toggle="modal" data-target="#priceModal"><i class="fa fa-fw fa-envelope-o"></i> 
+                                        Email - giwaanjy2002@gmail.com</a></li>
+                                                                               
+                                    </ul>
+                                </li></button> <button type="button" class="btn btn-danger btn-sm btn-flat"><i class=" fa fa-dustbin"></i>Delete</button></td>
+                            </tr>
+                       </tbody>
+                    </table>
+                </div>
+
+              .container-fluid
+            </div>
+    <!-- /#page-wrapper -->
+        </div><!-- /#wrapper -->
+    </div>
+
+
+
+  <!-- Button trigger modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btn btn-sm btn-success" placeholder="" value="Edit Name">
+                    <a href="#" type="button"  class=" btn btn-secondary" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+        </div>        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Current Password"><br>
+                    <input type="password" class="form-control mt-3" placeholder="New Password"><br>
+                    <input type="password" class="form-control mt-3" placeholder="Confirm Password">
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btn btn-sm btn-success" placeholder="" value="Change Password">
+                    <a href="#" type="" class=" btn text-dark border ml-4">Cancel</a>
+                
+                </div>
+                
+            </form>
+        </div>        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="list-group">
+                <p class="list-item"><strong>S/N</strong>1</p><hr>
+                <p class="list-item"><strong>Brand</strong>Toyota</p><hr>
+                <p class="list-item"><strong>Image</strong><img src="img/car2.jpg" alt=""></p><hr>
+                <p class="list-item"><strong>Price</strong>5000000</p><hr>
+                <p class="list-item"><strong>Current Price</strong>4900000</p><hr>
+
+            </div>
+           
+        </div>        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+    $(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $(".side-nav .collapse").on("hide.bs.collapse", function() {                   
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+    });
+    $('.side-nav .collapse').on("show.bs.collapse", function() {                        
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");        
+    });
+})    
+    
+</script>
